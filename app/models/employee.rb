@@ -2,6 +2,19 @@
 
 # rubocop:disable Rails/UniqueValidationWithoutIndex
 class Employee < ApplicationRecord
+  def self.csv_attributes
+    %w[department_id office_id number last_name first_name account email date_of_joining ]
+  end
+
+  def self.generate_csv
+    CSV.generate(headers: true) do |csv|
+      csv << csv_attributes
+      all.find_each do |employee|
+        csv << csv_attributes.map { |attr| employee.send(attr) }
+      end
+    end
+  end
+
   belongs_to :office
   belongs_to :department
   has_many :profiles, dependent: :destroy
