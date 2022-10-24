@@ -39,3 +39,4 @@
   .kaminari.mt-3
     = paginate @employees, theme: 'bootstrap-5'
     = page_entries_info @employees
+  = link_to 'CSVエクスポート', employees_path(format: :csv), class: 'btn btn-success mt-3'

@@ -6,6 +6,11 @@ class EmployeesController < ApplicationController
 
   def index
     @employees = Employee.active.order("#{sort_column} #{sort_direction}").page(params[:page])
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data @employees.generate_csv.tosjis, filename: "employees-#{Time.zone.now.strftime('%Y%m%d%S')}.csv" }
+    end
   end
 
   def new

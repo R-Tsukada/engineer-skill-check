@@ -61,4 +61,52 @@ RSpec.describe Employee, type: :model do
     employee.valid?
     expect(employee.errors[:password]).to include('を入力してください')
   end
+
+  it 'checks csv columns department' do
+    csv_content = Employee.generate_csv
+    csv = CSV.parse(csv_content)
+    expect(csv[0][0]).to eq 'department_id'
+  end
+
+  it 'checks csv columns office' do
+    csv_content = Employee.generate_csv
+    csv = CSV.parse(csv_content)
+    expect(csv[0][1]).to eq 'office_id'
+  end
+
+  it 'checks csv columns number' do
+    csv_content = Employee.generate_csv
+    csv = CSV.parse(csv_content)
+    expect(csv[0][2]).to eq 'number'
+  end
+
+  it 'checks csv columns last_name' do
+    csv_content = Employee.generate_csv
+    csv = CSV.parse(csv_content)
+    expect(csv[0][3]).to eq 'last_name'
+  end
+
+  it 'checks csv columns first_name' do
+    csv_content = Employee.generate_csv
+    csv = CSV.parse(csv_content)
+    expect(csv[0][4]).to eq 'first_name'
+  end
+
+  it 'checks csv columns account' do
+    csv_content = Employee.generate_csv
+    csv = CSV.parse(csv_content)
+    expect(csv[0][5]).to eq 'account'
+  end
+
+  it 'checks csv columns email' do
+    csv_content = Employee.generate_csv
+    csv = CSV.parse(csv_content)
+    expect(csv[0][6]).to eq 'email'
+  end
+
+  it 'checks csv columns date_of_joining' do
+    csv_content = Employee.generate_csv
+    csv = CSV.parse(csv_content)
+    expect(csv[0][7]).to eq 'date_of_joining'
+  end
 end
