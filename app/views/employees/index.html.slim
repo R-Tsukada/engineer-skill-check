@@ -1,11 +1,11 @@
 .employee_index
   - if flash.notice.present?
-    p
+    .alert.alert-success.mt-1
       = flash.notice
   - if current_user.employee_info_manage_auth
-    p.new_employee
-      = link_to '新規追加', new_employee_path, class: 'btn'
-  table.employee_table
+    .nav.justify-content-end.mt-2
+      = link_to '新規追加', new_employee_path, class: 'btn btn-primary'
+  table.employee_table.text-center
     thead
       tr
         th
@@ -27,15 +27,15 @@
           - else
             th
               = link_to employee.number, employee_profiles_path(employee)
-        th.name
-          = "#{employee.last_name} #{employee.first_name}"
-        th
-          = employee.department.name
-        - if current_user.employee_info_manage_auth
-          th.btn_th
-            = link_to '編集', edit_employee_path(employee), class: 'btn'
-          th.btn_th
-            = link_to '削除', employee, method: :delete, data: { confirm: "社員「#{employee.first_name} #{employee.last_name}」を削除します。よろしいですか？" }, class: 'btn'
+            th.name
+              = "#{employee.last_name} #{employee.first_name}"
+            th
+              = employee.department.name
+            - if current_user.employee_info_manage_auth
+              th.btn_th.my-2
+                = link_to '編集', edit_employee_path(employee), class: 'btn btn-secondary'
+              th.btn_th.my-2.ms-2
+                = link_to '削除', employee, method: :delete, data: { confirm: "社員「#{employee.first_name} #{employee.last_name}」を削除します。よろしいですか？" }, class: 'btn btn-danger'
   .kaminari.mt-3
     = paginate @employees, theme: 'bootstrap-5'
     = page_entries_info @employees

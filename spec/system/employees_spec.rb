@@ -32,20 +32,20 @@ describe 'Employees', js: true, type: :system do
       end
 
       it 'delete employee' do
-        all('tbody tr')[1].click_link '削除'
+        all('tbody th')[4].click_link '削除'
         page.driver.browser.switch_to.alert.accept
         expect(page).to have_content "「#{manager_employee.last_name} #{manager_employee.first_name}」を削除しました"
       end
 
       it 'edit employee' do
-        all('tbody tr')[1].click_link '編集'
+        all('tbody th')[3].click_link '編集'
         fill_in 'employee_last_name', with: '治'
         fill_in 'employee_first_name', with: '太宰'
         fill_in 'employee_password', with: manager_employee.password
         select '技術部', from: 'employee_department_id'
         select '大阪', from: 'employee_office_id'
-        click_on '保存'
-        all('tbody tr')[1].click_link '編集'
+        click_button '更新'
+        all('tbody th')[3].click_link '編集'
         expect(page).to have_content '治 太宰'
         expect(page).to have_content '技術部'
         expect(page).to have_content '大阪'

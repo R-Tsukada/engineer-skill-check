@@ -8,8 +8,8 @@
       = f.password_field :password, class: 'form-control'
     - if flash[:alert]
       .form-group
-        p
+        p.text-danger
           = flash[:alert]
     .row-center
       p
-        = f.submit 'ログイン', class: 'form-submit'
+        = f.submit 'ログイン', class: 'form-submit btn btn-primary'

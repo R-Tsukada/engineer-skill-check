@@ -12,6 +12,7 @@ class Employee < ApplicationRecord
   validates :first_name, presence: true
   validates :account, presence: true, uniqueness: true
   validates :password, presence: true
+  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP, message: 'に使える文字のみ入力してください' }
 
   scope :active, lambda {
     where(deleted_at: nil)

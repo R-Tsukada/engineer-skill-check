@@ -1,15 +1,12 @@
-.row
-  span.label
-    | 社員番号
-  span
-    = employee.number
-.row
-  span.label
-    | 氏名
-  span
-    = "#{employee.last_name} #{employee.first_name}"
-.row
-  span.label
-    | 部署
-  span
-    = employee.department.name
+.form-labrl.justify-content-start
+  | 社員番号
+.form-control.mb-2
+  = @employee.number
+.form-labrl.justify-content-start
+  | 氏名
+.form-control.mb-2
+  = "#{employee.last_name} #{employee.first_name}"
+.form-labrl.justify-content-start
+  | 部署
+.form-control.mb-2
+  = employee.department.name

@@ -14,7 +14,8 @@ RSpec.describe Employee, type: :model do
       last_name: 'aoi',
       first_name: 'tsukada',
       account: 'tsukada',
-      password: 'password'
+      password: 'password',
+      email: 'sample@example.com'
     )
     expect(employee).to be_valid
   end

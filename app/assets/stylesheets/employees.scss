@@ -4,11 +4,6 @@
     margin-right: 31px;
   }
 
-  .btn {
-    border: 1px solid;
-    padding: 3px 5px;
-  }
-
   .employee_table {
     height: fit-content;
     width: 700px;
@@ -53,7 +48,8 @@
     }
 
     input {
-      width: 150px;
+      width: 16rem;
+      height: 2.4rem;
       margin-right: 20px;
       margin-top: 5px;
     }
@@ -80,8 +76,5 @@
     position: absolute;
     top: -38px;
     right: 20px;
-    padding: 0px 22px;
-    background-color: white;
-    border: 1px solid;
   }
 }
