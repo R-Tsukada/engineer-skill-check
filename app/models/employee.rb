@@ -3,7 +3,7 @@
 # rubocop:disable Rails/UniqueValidationWithoutIndex
 class Employee < ApplicationRecord
   def self.csv_attributes
-    %w[department_id office_id number last_name first_name account email date_of_joining ]
+    %w[department_id office_id number last_name first_name account email date_of_joining]
   end
 
   def self.generate_csv
